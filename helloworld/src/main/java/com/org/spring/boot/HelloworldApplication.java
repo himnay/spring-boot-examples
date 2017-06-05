@@ -3,9 +3,8 @@ package com.org.spring.boot;
 import com.org.spring.boot.model.Signature;
 import com.org.spring.boot.model.User;
 import com.org.spring.boot.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,9 +18,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Slf4j
 @SpringBootApplication
 public class HelloworldApplication implements CommandLineRunner {
-    private static final Logger logger = LoggerFactory.getLogger(HelloworldApplication.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -46,28 +46,31 @@ public class HelloworldApplication implements CommandLineRunner {
 
         // Add child to existing parent
         User userHimansu = userRepository.findSignatureByUser("Himansu");
+        log.info("User : " + userHimansu);
         Signature signature = new Signature(readSignature("/signature.png"), "png");
         userHimansu.setSignature(signature);
         userRepository.save(userHimansu);
 
-        writeSignature(userRepository.findByUsername("himansu"));
+        writeSignature(userRepository.findByUsername("Himansu"));
 
 
         // remove parent and child - cascade delete
         User removeHimansu = userRepository.findSignatureByUser("Himansu");
         userRepository.delete(removeHimansu);
 
-        writeSignature(userRepository.findByUsername("chaminda"));
+        writeSignature(userRepository.findByUsername("Chaminda"));
 
         // remove child only - orphan delete
-        User removeSignature = userRepository.findSignatureByUser("chaminda");
+        User removeSignature = userRepository.findSignatureByUser("Chaminda");
+        log.info("User : " + removeSignature);
+
         removeSignature.setSignature(null);
         userRepository.save(removeSignature);
 
         // remove childless parent
-        User removeChaminda = userRepository.findSignatureByUser("chaminda");
+        User removeChaminda = userRepository.findSignatureByUser("Chaminda");
+        log.info("User : " + removeChaminda);
         userRepository.delete(removeChaminda);
-
 
     }
 

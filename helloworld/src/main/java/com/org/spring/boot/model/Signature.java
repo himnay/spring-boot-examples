@@ -1,5 +1,9 @@
 package com.org.spring.boot.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -14,6 +18,10 @@ import java.util.UUID;
  * Signature
  */
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 @Table(name = "user_signature")
 public class Signature {
 
@@ -34,29 +42,8 @@ public class Signature {
     @Column(name = "modified_at")
     private Timestamp modifiedAt;
 
-    public Signature() {
-
-    }
-
     public Signature(byte[] signature, String fileType) {
         this.signature = signature;
         this.fileType = fileType;
     }
-
-    public byte[] getSignature() {
-        return signature;
-    }
-
-    public void setSignature(byte[] signature) {
-        this.signature = signature;
-    }
-
-    public String getFileType() {
-        return fileType;
-    }
-
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
 }

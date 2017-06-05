@@ -1,5 +1,9 @@
 package com.org.spring.boot.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.CascadeType;
@@ -9,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -16,6 +21,11 @@ import java.util.UUID;
  * User
  */
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(generator = "uuid2")
@@ -34,29 +44,8 @@ public class User {
     @JoinColumn(name = "user_sig_fk")
     private Signature signature;
 
-    public User() {
-
-    }
-
     public User(String username) {
         this.username = username;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Signature getSignature() {
-        return signature;
-    }
-
-    public void setSignature(Signature signature) {
-        this.signature = signature;
-    }
-
 
 }
