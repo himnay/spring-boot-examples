@@ -1,4 +1,6 @@
 com/org/spring/boot/repository/UserRepository.class
 com/org/spring/boot/HelloworldApplication.class
+com/org/spring/boot/service/HelloworldService.class
+com/org/spring/boot/controller/HelloworldController.class
 com/org/spring/boot/model/Signature.class
 com/org/spring/boot/model/User.class

@@ -13,7 +13,7 @@ ALTER TABLE user ADD user_sig_fk binary(16);
 CREATE TABLE IF NOT EXISTS user_signature (
   id binary(16) NOT NULL,
   signature blob NOT NULL,
-  file_type char(10),
+  file_type char(5),
   created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   modified_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

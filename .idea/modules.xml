@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/commandlinerunner/commandlinerunner.iml" filepath="$PROJECT_DIR$/commandlinerunner/commandlinerunner.iml" />
       <module fileurl="file://$PROJECT_DIR$/helloworld/helloworld.iml" filepath="$PROJECT_DIR$/helloworld/helloworld.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot-examples.iml" filepath="$PROJECT_DIR$/.idea/spring-boot-examples.iml" />
     </modules>
