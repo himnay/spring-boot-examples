@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <version.lombak>1.16.16</version.lombak>
-        <version.io>2.5</version.io>
+        <version.io>2.7</version.io>
         <version.io.dropwizard.metrics>3.2.2</version.io.dropwizard.metrics>
     </properties>
 
